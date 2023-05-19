@@ -1,0 +1,58 @@
+{{ dateMaintenant | date : 'd/MM/yy' }}
+
+<div class="container">
+  <a *ngIf="isAdmin" mat-raised-button color="accent" routerLink="/ajout-utilisateur">Ajouter un utilisateur</a>
+
+  <div class="row">
+    <div *ngFor = "let utilisateur of listeUtilisateur" class="col-4">
+  <mat-card  >
+
+    <mat-card-header>
+      <div mat-card-avatar></div>
+      <mat-card-title>{{utilisateur | fullname }} - {{ utilisateur.pays.nom }}</mat-card-title>
+      <mat-card-subtitle>
+        <span [class.titre-administrator]="utilisateur | isAdmin">{{ (utilisateur | isAdmin) ? "Admin" : "Utilisateur" }}</span><br>
+
+        <span>
+          <i>
+          Membre depuis le : {{utilisateur.createdAt | date : "dd/MM/yyyy"}} <br>
+          Modifié le : {{ utilisateur.updatedAt | date : "short" }}<br>
+      
+        </i>
+      </span>
+
+
+      </mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [attr.src]="utilisateur.imageProfil" />
+    <mat-card-content>
+      <br>
+      <p>
+        Le berger allemand noir est un chien très rare et qui n'est pas reconnu comme une race à part entière. Cependant il existe bel et bien et sa couleur est due à son gêne. Le pelage entièrement noir est porté par les bergers allemands de race pure.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <a *ngIf="isAdmin" [routerLink]="['/edit-utilisateur', utilisateur.id]" mat-raised-button color="primary"><mat-icon fontIcon="edit"></mat-icon>Modifier</a>
+      <button *ngIf="isAdmin" mat-raised-button color="warn" (click)="onDeleteUser(utilisateur.id)"><mat-icon fontIcon="delete"></mat-icon>Supprimer</button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>
+
+
+
+
+
+
+
+
+
+<!--
+<ul> 
+    <ng-container *ngFor = "let utilisateur of listeUtilisateur ">
+    <li>{{utilisateur.prenom }} {{utilisateur.nom}}
+        <button (click)="onDeleteUser(utilisateur.id)" mat-raised-button color="warn">Supprimer</button>
+    </li>
+</ng-container>
+</ul>
+-->
