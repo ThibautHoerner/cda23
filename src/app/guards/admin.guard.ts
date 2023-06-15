@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import { ConnexionService } from '../../../connexion.service';
+import { ConnexionService } from '../services/connexion.service';
 import { IsAdminPipe } from '../pipes/is-admin.pipe';
 
 @Injectable({

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ConnexionService } from '../../connexion.service';
+import { ConnexionService } from './services/connexion.service';
 import { Utilisateur } from './models/utilisateur';
 
 @Component({

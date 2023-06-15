@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Utilisateur } from 'src/app/models/utilisateur';
 import { IsAdminPipe } from 'src/app/pipes/is-admin.pipe';
-import { ConnexionService } from 'connexion.service';
+import { ConnexionService } from 'src/app/services/connexion.service';
 import { UtilisateurService } from 'src/app/services/utilisateur.service';
 
 @Component({

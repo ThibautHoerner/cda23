@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ConnexionService } from 'connexion.service';
+import { ConnexionService } from 'src/app/services/connexion.service';
 
 @Component({
   selector: 'app-connexion',
