@@ -13,4 +13,4 @@ docker stop conteneur-angular-demo
 docker rm conteneur-angular-demo
 
 # Lancer un nouveau conteneur
-docker run -d --name=conteneur-spring-demo -p 4200:80 demoangular
+docker run -d --name=conteneur-angular-demo -p 4200:80 demoangular
