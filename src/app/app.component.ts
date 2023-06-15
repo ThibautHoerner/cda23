@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ConnexionService } from './services/connexion.service';
+import { ConnexionService } from '../../connexion.service';
 import { Utilisateur } from './models/utilisateur';
 
 @Component({
@@ -9,11 +9,11 @@ import { Utilisateur } from './models/utilisateur';
 })
 export class AppComponent {
 
-  utilisateurConnecte : Utilisateur | null = null
+  utilisateurConnecte: Utilisateur | null = null
 
-  constructor(private connexionService: ConnexionService){}
+  constructor(private connexionService: ConnexionService) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.connexionService._utilisateurConnecte.subscribe(
       utilisateur => (this.utilisateurConnecte = utilisateur)
     );

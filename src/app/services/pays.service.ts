@@ -13,6 +13,5 @@ export class PaysService {
 
   public getPays(): Observable<Pays[]> {
     return this.http.get<Pays[]>(environment.serverUrl + '/liste-pays')
-
   }
 }

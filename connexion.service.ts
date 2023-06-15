@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
-import { Utilisateur } from '../models/utilisateur';
+import { Utilisateur } from './src/app/models/utilisateur';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConnexionService {
-//Lors de la connexion > stocker les infos utilisateurs, adapter la page en fonction de celui qui est connecté
-  public _utilisateurConnecte: BehaviorSubject<Utilisateur | null> = 
+  //Lors de la connexion > stocker les infos utilisateurs, adapter la page en fonction de celui qui est connecté
+  public _utilisateurConnecte: BehaviorSubject<Utilisateur | null> =
     new BehaviorSubject<Utilisateur | null>(null);
 
-  constructor(private http: HttpClient, private router: Router) { 
+  constructor(private http: HttpClient, private router: Router) {
     this.updateUserConnecte();
   }
 
@@ -21,7 +22,7 @@ export class ConnexionService {
 
     return this.http
       .post(
-        "http://localhost:8080/connexion", utilisateur, {
+        environment.serverUrl + '/connexion', utilisateur, {
         responseType: 'text'
       })
   }
@@ -36,9 +37,9 @@ export class ConnexionService {
       //ROLE_UTILISATEUR, ROLE_ADMINISTRATEUR
       const listeRole = donnesUtilisateur.roles
         .split(',')
-        .filter((role : string) => role != "")
+        .filter((role: string) => role != "")
         .map((nomRole: string) => {
-          return {nom: nomRole};
+          return { nom: nomRole };
         });
 
       const utilisateur: Utilisateur = {
@@ -46,7 +47,7 @@ export class ConnexionService {
         nom: donnesUtilisateur.nom,
         prenom: donnesUtilisateur.penom,
         roles: listeRole,
-        pays: { nom : donnesUtilisateur.pays }
+        pays: { nom: donnesUtilisateur.pays }
       };
 
       this._utilisateurConnecte.next(utilisateur);

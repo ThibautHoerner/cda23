@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import { ConnexionService } from '../services/connexion.service';
+import { ConnexionService } from '../../../connexion.service';
 import { IsAdminPipe } from '../pipes/is-admin.pipe';
 
 @Injectable({
@@ -9,9 +9,9 @@ import { IsAdminPipe } from '../pipes/is-admin.pipe';
 })
 export class AdminGuard implements CanActivate {
   constructor(
-    private connexionService: ConnexionService, 
+    private connexionService: ConnexionService,
     private router: Router
-    ) { }
+  ) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,
