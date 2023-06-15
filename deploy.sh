@@ -7,10 +7,10 @@ git pull
 docker build --no-cache -t demoangular .
 
 # Arreter le conteneur existant
-docker stop conteneur-spring-demo
+docker stop conteneur-angular-demo
 
 # Supprimer le conteneur existant
-docker rm conteneur-spring-demo
+docker rm conteneur-angular-demo
 
 # Lancer un nouveau conteneur
 docker run -d --name=conteneur-spring-demo -p 4200:80 demoangular
